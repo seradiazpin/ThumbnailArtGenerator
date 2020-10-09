@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mix.component.css']
 })
 export class MixComponent implements OnInit {
-  seed1 = 0
-  seed2 = 100
+  seed1: number = 0 
+  seed2: number = 100
   imagesUrl = {}
   mixType = 0
   constructor(private api: WebapiService) { }

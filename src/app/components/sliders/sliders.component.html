@@ -1,0 +1,12 @@
+<div class="row "style="overflow: auto;height: 400px;border: 1px solid #222;">
+  <div class="col-md-12">
+    <div id="slideAll" class="slider slider-info" (click)="onChange(true)"></div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div *ngFor="let item of items" class="col-md-2">
+    <b>{{item}}</b>
+    <div id="{{ 'sliderRegular' + item }}" class="slider " (click)="onChange()"></div>
+  </div>
+</div>

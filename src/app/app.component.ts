@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { WebapiService } from './servicers/webapi.service';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'webpage';
+  imageUrl
+  constructor(private api:WebapiService) {
+
+  }
+
+  generateRandom(){
+     this.api.generateRandom().subscribe(data =>{
+      this.imageUrl = data;
+    })
+  }
 }

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Seed Style</span>
+        </div>
+        <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed1"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Seed Structure</span>
+        </div>
+        <input type="text" class="form-control" placeholder="seed2" aria-label="Seed 2" [(ngModel)]="seed2"
+          aria-describedby="basic-addon1">
+      </div>
+      <select name="select" [(ngModel)]="mixType">
+        <option value="0" selected>Struct</option> 
+        <option value="1">Style</option>
+        <option value="3">Style ++</option>
+      </select>
+    </div>
+    <div class="row">
+      <a (click)="mix()" class="btn btn-info col-sm" role="button">
+        <i class="material-icons">fiber_new</i> Generate
+      </a>
+      <a [ngClass]="{'disabled': !imageUrl}" [href]="imageUrl" class="btn btn-info col-sm" role="button" download="">
+        <span class="material-icons">cloud_download</span> Download
+      </a>
+    </div>
+
+  </div>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-sm-4">
+        <app-image title="Style" [src] ="getImgUrl('src')"></app-image>
+      </div>
+      <div class="col-sm-4">
+        <app-image title="Structure" [src] ="getImgUrl('dst')"></app-image>
+      </div>
+      <div class="col-sm-4">
+        <app-image title="Mix" [src] ="getImgUrl('mix')"></app-image>
+      </div>
+    </div>
+  </div>
+
+</div>

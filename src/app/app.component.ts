@@ -1,5 +1,5 @@
-import { WebapiService } from './servicers/webapi.service';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,13 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  imageUrl
-  constructor(private api:WebapiService) {
-
+  year
+  constructor(private router: Router) {
+    this.year = new Date().getFullYear()
   }
-
-  generateRandom(){
-     this.api.generateRandom().subscribe(data =>{
-      this.imageUrl = data;
-    })
+  isHome(){
+    console.log(this.router.url)
+    console.log(this.router.url== "/")
+    return this.router.url == "/"
   }
 }

@@ -17,6 +17,9 @@ import { FormsModule } from '@angular/forms';
 import { ProjectmixComponent } from './components/projectmix/projectmix.component';
 import { ImageComponent } from './components/image/image.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ResumeComponent } from './components/resume/resume.component';
+import { TesisComponent } from './components/tesis/tesis.component';
+import { ResourcesComponent } from './components/resources/resources.component';
 
 const routes:Routes = [
   {path:'', component:HomeComponent},
@@ -24,6 +27,9 @@ const routes:Routes = [
   {path:'generator', component:GeneratorComponent},
   {path:'projector', component:ProjectorComponent},
   {path:'mixer', component:MixerComponent},
+  {path:'resume', component:ResumeComponent},
+  {path:'tesis', component:TesisComponent},
+  {path:'resources', component:ResourcesComponent},
 ]
 
 @NgModule({
@@ -40,7 +46,13 @@ const routes:Routes = [
     GalleryComponent,
     GeneratorComponent,
     ProjectorComponent,
-    MixerComponent
+    MixerComponent,
+    ResumeComponent,
+    TesisComponent,
+    ResourcesComponent,
+    ResumeComponent,
+    TesisComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,

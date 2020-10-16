@@ -8,6 +8,8 @@ export class WebapiService {
   API = 'http://localhost:8000'
   GENERATOR = 'generator'
   PROJECTOR = 'projector'
+  GALLERY  = 'gallery'
+
   constructor(private http: HttpClient) { }
 
   requestString(api:string, action:string){
@@ -32,5 +34,9 @@ export class WebapiService {
   }
   mix(data): Observable<any> {
     return this.http.post(this.requestString(this.PROJECTOR, "mixSeeds"), data) as Observable<any>;
+  }
+
+  gallery(data): Observable<any> {
+    return this.http.post(this.requestString(this.GALLERY, "images"), data) as Observable<any>;
   }
 }

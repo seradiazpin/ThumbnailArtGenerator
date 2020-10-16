@@ -12,8 +12,6 @@ export class AppComponent {
     this.year = new Date().getFullYear()
   }
   isHome(){
-    console.log(this.router.url)
-    console.log(this.router.url== "/")
     return this.router.url == "/"
   }
 }

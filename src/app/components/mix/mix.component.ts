@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mix.component.css']
 })
 export class MixComponent implements OnInit {
-  seed1: number = 0 
-  seed2: number = 100
+  seed1: number = this.getRandomInt(0,99999)
+  seed2: number = this.getRandomInt(0,99999);
   imagesUrl = {}
-  mixType = 0
+  mixType = 3
   constructor(private api: WebapiService) { }
 
 
@@ -25,5 +25,14 @@ export class MixComponent implements OnInit {
   }
   getImgUrl(imgTag) {
     return this.imagesUrl[imgTag];
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  randomSeed(){
+    this.seed1 = this.getRandomInt(0,99999)
+    this.seed2  = this.getRandomInt(0,99999);
   }
 }

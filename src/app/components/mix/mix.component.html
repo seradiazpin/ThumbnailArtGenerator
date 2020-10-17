@@ -28,6 +28,9 @@
       <a [ngClass]="{'disabled': !imageUrl}" [href]="imageUrl" class="btn btn-info col-sm" role="button" download="">
         <span class="material-icons">cloud_download</span> Download
       </a>
+      <a (click)="randomSeed()" class="btn btn-info col-sm">
+        <span class="material-icons">local_florist</span> Random Seed
+      </a>
     </div>
 
   </div>

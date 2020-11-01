@@ -34,5 +34,6 @@ export class MixComponent implements OnInit {
   randomSeed(){
     this.seed1 = this.getRandomInt(0,99999)
     this.seed2  = this.getRandomInt(0,99999);
+    
   }
 }

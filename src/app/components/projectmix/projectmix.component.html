@@ -11,15 +11,7 @@
       <a (click)="projectImage()" class="btn btn-info col-sm" role="button">
         <i class="material-icons">fiber_new</i> Generate
       </a>
-      <a [ngClass]="{'disabled': !imageUrl}" [href]="imageUrl" class="btn btn-info col-sm" role="button" download="">
-        <span class="material-icons">cloud_download</span> Download
-      </a>
-      <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
-        <span class="material-icons">merge_type</span> Mix Image
-      </a>
-      <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
-        <span class="material-icons">edit</span> Edit Image
-      </a>
+      
       <div class="form-group">
         <label for="file">Choose Files</label>
         <input type="file" id="file" (change)="handleFileInput($event.target.files)">

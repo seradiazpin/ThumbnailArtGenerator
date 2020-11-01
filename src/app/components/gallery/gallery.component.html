@@ -15,17 +15,27 @@
     <h1>Images </h1>
     <div class="row">
       <div *ngFor="let item of images" class="col-sm-3" >
-        <img src="{{item.link}}" class="rounded img-fluid" > 
-        <br>
+        <div>
+          <img src="{{item.link_small}}" class="rounded img-fluid" > 
+          <a [href]="item.link" class="btn btn-info col-sm" role="button" download="" target="_blank">
+            <span class="material-icons">cloud_download</span> {{item.id}}
+          </a>
+        </div>
         <br>
       </div>
     </div>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-end">
-        <li class="page-item">
+        <li class="page-item" [ngClass]="{'disabled': !previous_active}">
           <a class="page-link" (click)="prev()" tabindex="-1">Previous</a>
         </li>
-        <li class="page-item">
+        <li class="page-item active disabled">
+          <span class="page-link">
+            {{page}}
+            <span class="sr-only">(current)</span>
+          </span>
+        </li>
+        <li class="page-item"  [ngClass]="{'disabled': !next_active}"> 
           <a class="page-link"(click)="next()">Next</a>
         </li>
       </ul>
@@ -33,3 +43,4 @@
   </div>
 
 </div>
+<br>

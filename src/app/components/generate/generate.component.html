@@ -3,6 +3,7 @@
     <app-image title="Generated" [src]="imageUrl"></app-image>
   </div>
   <div class="col-md-6">
+    <h3>Options</h3>
     <div class="row">
       <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
         <i class="material-icons">fiber_new</i> Generate
@@ -10,6 +11,7 @@
       <a [ngClass]="{'disabled': !imageUrl}" [href]="imageUrl" class="btn btn-info col-sm" role="button" download="">
         <span class="material-icons">cloud_download</span> Download
       </a>
+      <!--
       <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
         <span class="material-icons">merge_type</span> Mix Image
       </a>
@@ -17,6 +19,6 @@
         <span class="material-icons">edit</span> Edit Image
       </a>
     </div>
-    <app-sliders (vector)="processVector($event)"></app-sliders>
+    <app-sliders (vector)="processVector($event)"></app-sliders>-->
   </div>
 </div> 

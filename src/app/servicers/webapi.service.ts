@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WebapiService {
-  API = 'https://api-stylegan.herokuapp.com'
+  API = 'http://localhost:8000'
   GENERATOR = 'generator'
   PROJECTOR = 'projector'
   GALLERY  = 'gallery'

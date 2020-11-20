@@ -1,25 +1,55 @@
 <div class="row">
   <div class="col-md-12">
     <div class="row">
-      <div class="input-group mb-3">
+      <div class="form-group mb-3 col-md-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Seed Style</span>
+          <span class="input-group-text" id="basic-addon1">Seed First Imnage</span>
         </div>
         <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed1"
           aria-describedby="basic-addon1">
       </div>
-      <div class="input-group mb-3">
+      <div class="form-group mb-3 col-md-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Seed Structure</span>
+          <span class="input-group-text" id="basic-addon1">Seed Second Image</span>
         </div>
         <input type="text" class="form-control" placeholder="seed2" aria-label="Seed 2" [(ngModel)]="seed2"
           aria-describedby="basic-addon1">
       </div>
-      <select name="select" [(ngModel)]="mixType">
-        <option value="0" selected>Struct</option> 
-        <option value="1">Style</option>
-        <option value="3">Style ++</option>
-      </select>
+      <div class="form-group mb-3 col-md-4 bmd-form-group is-filled">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Style mixing type</span>
+        </div>
+
+        <div class="form-check form-check-radio">
+          <label class="form-check-label">
+            <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios" id="exampleRadios1" value="0">
+            Structure first image, Style second image
+            <span class="circle">
+              <span class="check"></span>
+            </span>
+          </label>
+        </div>
+        <div class="form-check form-check-radio">
+          <label class="form-check-label">
+            <input class="form-check-input"[(ngModel)]="mixType" type="radio" name="exampleRadios" id="exampleRadios2" value="1"
+              checked>
+            Mix betwen the two images
+            <span class="circle">
+              <span class="check"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="form-check form-check-radio">
+          <label class="form-check-label">
+            <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios1" id="exampleRadios3" value="2">
+            Structure second image, Style first image
+            <span class="circle">
+              <span class="check"></span>
+            </span>
+          </label>
+        </div>
+      </div>
     </div>
     <div class="row">
       <a (click)="mix()" class="btn btn-info col-sm" role="button">
@@ -34,13 +64,13 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-sm-4">
-        <app-image title="Style" [src] ="getImgUrl('src')"></app-image>
+        <app-image title="Style" [src]="getImgUrl('src')"></app-image>
       </div>
       <div class="col-sm-4">
-        <app-image title="Structure" [src] ="getImgUrl('dst')"></app-image>
+        <app-image title="Structure" [src]="getImgUrl('dst')"></app-image>
       </div>
       <div class="col-sm-4">
-        <app-image title="Mix" [src] ="getImgUrl('mix')"></app-image>
+        <app-image title="Mix" [src]="getImgUrl('mix')"></app-image>
       </div>
     </div>
   </div>

@@ -14,6 +14,7 @@ export class GalleryComponent implements OnInit {
   previous_active = false
   first = null
   page = 0
+  preview = {}
   constructor(private api:WebapiService) { }
   query(page){
     this.api.gallery({"page":page,"size":16}).subscribe(data=>{
@@ -47,5 +48,8 @@ export class GalleryComponent implements OnInit {
   prev(){
     this.query(this.previous_id);
     this.page--
+  }
+  previewImage(image){
+    this.preview= image;
   }
 }

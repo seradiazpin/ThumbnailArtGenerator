@@ -42,7 +42,7 @@
 
         <div class="form-check form-check-radio">
           <label class="form-check-label">
-            <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios1" id="exampleRadios3" value="2">
+            <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios1" id="exampleRadios3" value="2" checked>
             Structure second image, Style first image
             <span class="circle">
               <span class="check"></span>
@@ -64,13 +64,22 @@
   <div class="col-md-12">
     <div class="row">
       <div class="col-sm-4">
-        <app-image title="Style" [src]="getImgUrl('src')"></app-image>
+        <app-image title="First Image" [src]="getImgUrl('src')"></app-image>
+        <a [ngClass]="{'disabled': !getDownloadUrl('src')}" [href]="getDownloadUrl('src')" target="_blank" class="btn btn-info col-sm" role="button" download>
+          <span class="material-icons">cloud_download</span> Download
+        </a>
       </div>
       <div class="col-sm-4">
-        <app-image title="Structure" [src]="getImgUrl('dst')"></app-image>
+        <app-image title="Second Image" [src]="getImgUrl('dst')"></app-image>
+        <a [ngClass]="{'disabled': !getDownloadUrl('dst')}" [href]="getDownloadUrl('dst')" target="_blank" class="btn btn-info col-sm" role="button" download>
+          <span class="material-icons">cloud_download</span> Download
+        </a>
       </div>
       <div class="col-sm-4">
-        <app-image title="Mix" [src]="getImgUrl('mix')"></app-image>
+        <app-image title="Mixed Image" [src]="getImgUrl('mix')"></app-image>
+        <a [ngClass]="{'disabled': !getDownloadUrl('mix')}" [href]="getDownloadUrl('mix')" target="_blank" class="btn btn-info col-sm" role="button" download>
+          <span class="material-icons">cloud_download</span> Download
+        </a>
       </div>
     </div>
   </div>

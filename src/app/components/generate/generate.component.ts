@@ -7,24 +7,31 @@ import { Component } from '@angular/core';
 })
 export class GenerateComponent {
 
-  imageUrl: string = ""
+  imageData = {}
+  seed1
   constructor(private api: WebapiService) {
-
+    this.seed1 = this.getRandomInt(0,99999)
   }
 
   generateRandom() {
     this.api.generateRandom().subscribe(data => {
-      this.imageUrl = data as string;
+      this.imageData = data;
     })
   }
-  generate(data) {
-    this.api.generate(data).subscribe(data => {
-      this.imageUrl = data as string;
+  generate() {
+    this.api.generate({"seed":this.seed1}).subscribe(data => {
+      this.imageData = data ;
     })
   }
 
-  processVector(vector){
+  /*processVector(vector){
     this.generate({"latent_vector": vector})
+  }*/
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
-
+  randomSeed(){
+    this.seed1 = this.getRandomInt(0,99999)
+    
+  }
 }

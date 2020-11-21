@@ -10,21 +10,27 @@ export class MixComponent implements OnInit {
   seed1: number = this.getRandomInt(0,99999)
   seed2: number = this.getRandomInt(0,99999);
   imagesUrl = {}
-  mixType = 3
+  mixType = "2"
   constructor(private api: WebapiService) { }
 
 
   ngOnInit() {
   }
   mix() {
-    console.log(this.seed1, this.seed2);
-
+    console.log(this.mixType)
     this.api.mix({ "seed1": this.seed1, "seed2": this.seed2 ,"style":this.mixType}).subscribe(data => {
       this.imagesUrl = data;
     });
   }
   getImgUrl(imgTag) {
-    return this.imagesUrl[imgTag];
+    if(this.imagesUrl[imgTag]){
+      return this.imagesUrl[imgTag].link_small;
+    }
+  }
+  getDownloadUrl(imgTag) {
+    if(this.imagesUrl[imgTag]){
+      return this.imagesUrl[imgTag].link;
+    }
   }
 
   getRandomInt(min, max) {

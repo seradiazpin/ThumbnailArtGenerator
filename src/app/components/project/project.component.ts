@@ -1,5 +1,5 @@
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { WebapiService } from './../../servicers/webapi.service';
+import { WebapiService } from './../../services/webapi.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectComponent implements OnInit {
   fileToUpload: File = null;
   imagesUrl: SafeUrl[] = []
-  originalUrl
+  originalUrl;
+  loading;
   constructor(private api: WebapiService,private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
@@ -22,11 +23,12 @@ export class ProjectComponent implements OnInit {
 
   projectImage(){
     this.imagesUrl = []
+    this.loading = true;
     this.api.project(this.fileToUpload).subscribe(data=>{
       data.forEach(element => {
         this.imagesUrl.push(element as string);
       });
-      
+      this.loading = false;
     })
   }
 

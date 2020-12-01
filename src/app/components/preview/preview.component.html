@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="previewModal" tabindex="-1" role="dialog"
+<div class="modal fade bd-example-modal-lg" [id]="preview?.id" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -14,7 +14,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a [href]="preview?.link" class="btn btn-primary col-sm" role="button" download="" target="_blank">
+        <a [href]="preview?.link" class="btn btn-primary col-sm"  role="button"  target="_blank">
           <i class="fas fa-cloud-download-alt"></i> Download
         </a>
       </div>

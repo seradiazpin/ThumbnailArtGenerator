@@ -1,6 +1,6 @@
 <h3>{{title}}</h3>
 
-<a role="button" data-toggle="modal" data-target="#previewModal">
+<a role="button" data-toggle="modal"[attr.data-target]="'#'+imageData?.id">
     <img class="rounded img-fluid" [src]="getImg()">
 </a>
 <!-- Modal -->

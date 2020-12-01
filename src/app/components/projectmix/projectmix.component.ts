@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { WebapiService } from 'src/app/servicers/webapi.service';
+import { WebapiService } from 'src/app/services/webapi.service';
 
 @Component({
   selector: 'app-projectmix',

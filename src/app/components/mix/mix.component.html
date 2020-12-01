@@ -4,15 +4,9 @@
       <div class="col-md-12 mx-auto">
         <h1>Mix Image</h1>
         <h3 class="title">Mix two random images using a neural network.</h3>
-        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
-          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
-        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
-          class in the CSS.</p>
-        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
-          media query at the bottom of the CSS snippet.</p>
-        <p class="mb-0">
-          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
-        </p>
+        <p>Generate two random images using seeds and select the mixing type. Then click on the generate option and wait
+          a few seconds.</p>
+        <p>The network will generate two images using the seeds, and generate a third one using the mixing type.</p>
       </div>
     </div>
   </div>
@@ -31,6 +25,10 @@
                 </div>
                 <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed1"
                   aria-describedby="inputGroup-sizing-sm">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    (click)="randomSeed1()">Random Seed</button>
+                </div>
               </div>
 
               <div class="input-group input-group-sm mb-3">
@@ -39,49 +37,48 @@
                 </div>
                 <input type="text" class="form-control" placeholder="seed2" aria-label="Seed 2" [(ngModel)]="seed2"
                   aria-describedby="inputGroup-sizing-sm">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    (click)="randomSeed2()">Random Seed</button>
+                </div>
               </div>
 
               <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">Style mixing type</span>
-                </div>
-                <div class="form-control">
-                  <div class="form-check  form-check-inline">
-                    <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios"
-                      id="exampleRadios1" value="0">
-                    <label class="form-check-label">
-                      Structure first image, Style second image
-                    </label>
-                  </div>
-                  <div class="form-check  form-check-inline">
-                    <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios"
-                      id="exampleRadios2" value="1" checked>
-                    <label class="form-check-label">
-                      Mix betwen the two images
-                    </label>
-
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" id="button-addon3">
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(0)" [ngClass]="{'btn-secondary': mixType == 0 ,'btn-outline-secondary': mixType != 0}" type="button">Structure first image, Style second image</button>
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(1)" [ngClass]="{'btn-secondary': mixType == 1 ,'btn-outline-secondary': mixType != 1}" type="button"> Mix betwen the two images</button>
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(2)" [ngClass]="{'btn-secondary': mixType == 2 ,'btn-outline-secondary': mixType != 2}" type="button">Structure second image, Style first image</button>
                   </div>
 
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" [(ngModel)]="mixType" type="radio" name="exampleRadios1"
-                      id="exampleRadios3" value="2" checked>
-                    <label class="form-check-label">
-                      Structure second image, Style first image
-                    </label>
-                  </div>
+                  <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="help =!help"><i
+                    class="fas fa-question-circle"></i></button>
                 </div>
+
               </div>
             </div>
-            <div class="row">
-              <a (click)="mix()" class="btn btn-primary col-sm" role="button">
-                <i class="fas fa-paint-brush"></i> Generate
-              </a>
-              <a (click)="randomSeed()" class="btn btn-primary col-sm">
-                <i class="fas fa-seedling"></i> Random Seed
-              </a>
+
+            <div class="col-md-12" *ngIf="help">
+              <div class="row">
+                <img src="img/mixed/more_info.png" class="rounded img-fluid">
+              </div>
             </div>
 
+            <div class="row">
+              <a (click)="mix()" class="btn btn-primary col-sm mx-1 my-1">
+                <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true" *ngIf="loading"></span>
+                <i *ngIf="!loading" class="fas fa-paint-brush"></i> {{!loading ? "Generate"  :"Generating Images"}}
+              </a>
+              <a (click)="randomSeed()" class="btn btn-primary col-sm mx-1 my-1">
+                <i class="fas fa-seedling"></i> Random Seed
+              </a>
+              <a (click)="swapSeeds()" class="btn btn-primary col-sm mx-1 my-1">
+                <i class="fas fa-random"></i>Swap Seeds
+              </a>
+            </div>
           </div>
+      
+
           <div class="col-md-12">
             <div class="row">
               <div class="col-sm-4">

@@ -9,7 +9,7 @@ header {
 
 header video {
   position: absolute;
-  top: 150%;
+  top: 120%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -40,7 +40,7 @@ header .overlay {
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    background:  black no-repeat center center scroll;
   }
   header video {
     display: none;

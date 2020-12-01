@@ -1,4 +1,4 @@
-import { WebapiService } from './../../servicers/webapi.service';
+import { WebapiService } from './../../services/webapi.service';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-generate',
@@ -9,6 +9,7 @@ export class GenerateComponent {
 
   imageData;
   seed1;
+  loading;
   constructor(private api: WebapiService) {
     this.seed1 = this.getRandomInt(0,99999)
   }
@@ -19,8 +20,10 @@ export class GenerateComponent {
     })
   }
   generate() {
+    this.loading = true;
     this.api.generate({"seed":this.seed1}).subscribe(data => {
       this.imageData = data ;
+      this.loading = false;
     })
   }
 

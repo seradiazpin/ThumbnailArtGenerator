@@ -1,5 +1,6 @@
-import { WebapiService } from 'src/app/servicers/webapi.service';
+import { WebapiService } from 'src/app/services/webapi.service';
 import { Component, OnInit } from '@angular/core';
+import { DownloadService } from 'src/app/services/download.service';
 
 @Component({
   selector: 'app-gallery',
@@ -15,8 +16,10 @@ export class GalleryComponent implements OnInit {
   first = null
   page = 0
   preview
-  constructor(private api:WebapiService) { }
+  loading;
+  constructor(private api:WebapiService, private downloads: DownloadService) { }
   query(page){
+    this.loading = true;
     this.api.gallery({"page":page,"size":16}).subscribe(data=>{
       this.images = data
       this.first = data[0].id
@@ -35,6 +38,7 @@ export class GalleryComponent implements OnInit {
       }else{
         this.next_active = false
       }
+      this.loading = false;
     })
   }
   ngOnInit() {
@@ -51,5 +55,18 @@ export class GalleryComponent implements OnInit {
   }
   previewImage(image){
     this.preview= image;
+  }
+
+  download(url, name): void {
+    this.downloads
+      .download(url)
+      .subscribe(blob => {
+        const a = document.createElement('a')
+        const objectUrl = URL.createObjectURL(blob)
+        a.href = objectUrl
+        a.download = name+'.png';
+        a.click();
+        URL.revokeObjectURL(objectUrl);
+      })
   }
 }

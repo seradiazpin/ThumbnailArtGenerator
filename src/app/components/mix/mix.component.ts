@@ -24,7 +24,7 @@ export class MixComponent implements OnInit {
   }
   getImgUrl(imgTag) {
     if(this.imagesUrl[imgTag]){
-      return this.imagesUrl[imgTag].link_small;
+      return this.imagesUrl[imgTag];
     }
   }
   getDownloadUrl(imgTag) {

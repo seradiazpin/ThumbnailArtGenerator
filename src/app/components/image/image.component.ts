@@ -8,13 +8,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ImageComponent{
   @Input() title: string  = ""
-  @Input() src: string = ""
+  @Input() imageData
   placeholder: string = "img/placeholder.png"
   constructor( private domSanitizer: DomSanitizer) { }
 
   getImg() {
-    if(this.src && this.src !== ''){
-      return this.domSanitizer.bypassSecurityTrustUrl(this.src);
+    if(this.imageData && this.imageData !== ''){
+      return this.domSanitizer.bypassSecurityTrustUrl(this.imageData["link_small"]);
     }else{
       return this.placeholder;
     }

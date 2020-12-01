@@ -1,6 +1,3 @@
-import { MixerComponent } from './components/mixer/mixer.component';
-import { ProjectorComponent } from './components/projector/projector.component';
-import { GeneratorComponent } from './components/generator/generator.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,16 +17,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { ResumeComponent } from './components/resume/resume.component';
 import { TesisComponent } from './components/tesis/tesis.component';
 import { ResourcesComponent } from './components/resources/resources.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 const routes:Routes = [
-  {path:'', component:HomeComponent},
+  {path:'home', component:HomeComponent},
   {path:'gallery', component:GalleryComponent},
-  {path:'generator', component:GeneratorComponent},
-  {path:'projector', component:ProjectorComponent},
-  {path:'mixer', component:MixerComponent},
+  {path:'generator', component:GenerateComponent},
+  {path:'projector', component:ProjectComponent},
+  {path:'mixer', component:MixComponent},
   {path:'resume', component:ResumeComponent},
   {path:'tesis', component:TesisComponent},
   {path:'resources', component:ResourcesComponent},
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }
 ]
 
 @NgModule({
@@ -44,15 +43,13 @@ const routes:Routes = [
     ImageComponent,
     HomeComponent,
     GalleryComponent,
-    GeneratorComponent,
-    ProjectorComponent,
-    MixerComponent,
     ResumeComponent,
     TesisComponent,
     ResourcesComponent,
     ResumeComponent,
     TesisComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,

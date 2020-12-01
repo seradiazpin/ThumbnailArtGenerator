@@ -14,7 +14,7 @@ export class GalleryComponent implements OnInit {
   previous_active = false
   first = null
   page = 0
-  preview = {}
+  preview
   constructor(private api:WebapiService) { }
   query(page){
     this.api.gallery({"page":page,"size":16}).subscribe(data=>{

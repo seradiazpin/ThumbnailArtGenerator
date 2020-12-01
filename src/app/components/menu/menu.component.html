@@ -1,74 +1,118 @@
-<div class="section ">
+<section class="my-5">
   <div class="container">
-    <h4>Generate new images</h4>
     <div class="row">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm1.png">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm2.png">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm3.png">
+      <div class="col-md-12 mx-auto">
+        <h4>Generate new images</h4>
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
+          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
+          class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+          media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
+        <div class="row">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm1.png">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm2.png">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm3.png">
 
+        </div>
+        <br>
+        <div class="row">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm4.png">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm5.png">
+          <img class="rounded img-fluid col-sm-4" src="img/generated/ejm6.png">
+        </div>
+        <br>
+        <div class="text-center">
+          <a type="button" class="btn btn-outline-primary" routerLink="/gallery"><i class="fas fa-images"></i>
+            Images Gallery
+          </a>
+          <a type="button" class="btn btn-outline-primary" routerLink="/generator"><i class="fas fa-palette"></i>
+            Generate new Image
+          </a>
+        </div>
+
+      </div>
     </div>
-    <br>
+  </div>
+</section>
+
+<section class="my-5 bg-gray">
+  <div class="container">
     <div class="row">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm4.png">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm5.png">
-      <img class="rounded img-fluid col-sm-4" src="img/generated/ejm6.png">
+      <div class="col-md-12 mx-auto">
+        <h4>Generate an existing image</h4>
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
+          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
+          class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+          media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
+        <div class="row align-items-center">
+          <div class="col-sm-3">
+            <img class="rounded img-fluid" src="img/projected/example.jpeg">
+            <p>Initial Image</p>
+          </div>
+          <div class="col-sm-6">
+            <img class="rounded img-fluid col-sm-4" src="img/projected/proj1.png">
+            <img class="rounded img-fluid col-sm-4" src="img/projected/proj2.png">
+            <img class="rounded img-fluid col-sm-4" src="img/projected/proj3.png">
+            <p>Steps</p>
+          </div>
+          <div class="col-sm-3">
+            <img class="rounded img-fluid" src="img/projected/proj4.png">
+            <p>Reconstruction</p>
+          </div>
+        </div>
+        <br>
+        <div class="text-center">
+          <a type="button" class="btn btn-outline-primary" routerLink="/projector"><i class="fas fa-swatchbook"></i>
+            Project image
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  <br>
-  <a class="btn btn-info btn-round" routerLink="/gallery"><span class="material-icons">
-      photo_library
-    </span>
-    Images Gallery</a>
-  <a class="btn btn-info btn-round" routerLink="/generator">
-    <span class="material-icons">
-      palette
-    </span>
-    Generate new Image</a>
-</div>
-<div class="section section-gray">
-  <div class="container">
-    <h4>Generate an existing image</h4>
-    <div class="row align-items-center">
-      <div class="col-sm-3">
-        <img class="rounded img-fluid" src="img/projected/example.jpeg">
-        <p>Initial Image</p>
-      </div>
-      <div class="col-sm-6">
-        <img class="rounded img-fluid col-sm-4" src="img/projected/proj1.png">
-        <img class="rounded img-fluid col-sm-4" src="img/projected/proj2.png">
-        <img class="rounded img-fluid col-sm-4" src="img/projected/proj3.png">
-        <p>Steps</p>
-      </div>
-      <div class="col-sm-3">
-        <img class="rounded img-fluid" src="img/projected/proj4.png">
-        <p>Reconstruction</p>
-      </div>
-    </div>
-    <a class="btn btn-info btn-round" routerLink="/projector"><span class="material-icons">
-        view_week
-      </span>
-      Project image</a>
-  </div>
-</div>
-<div class="section">
-  <div class="container">
-    <h4>Mix two images in a new one</h4>
-    <div class="row align-items-center">
-      <div class="col-sm-6">
-        <img class="rounded img-fluid " src="img/mixed/dst.png">
-        <br>
-        <br>
-        <img class="rounded img-fluid " src="img/mixed/src.png">
-      </div>
-      <div class="col-sm-6">
-        <img class="rounded img-fluid" src="img/mixed/mix.png">
-      </div>
-    </div>
-    <a class="btn btn-info btn-round" routerLink="/mixer">
-      <span class="material-icons">
-        style
-      </span>
+</section>
 
-      Mix images</a>
+<section class="my-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <h4>Mix two images in a new one</h4>
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
+          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
+          class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+          media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <img class="rounded img-fluid " src="img/mixed/dst.png">
+            <br>
+            <br>
+            <img class="rounded img-fluid " src="img/mixed/src.png">
+          </div>
+          <div class="col-sm-6">
+            <img class="rounded img-fluid" src="img/mixed/mix.png">
+          </div>
+        </div>
+        <br>
+        <div class="text-center">
+          <a type="button" class="btn btn-outline-primary" routerLink="/mixer"><i class="fas fa-paint-brush"></i>
+            Mix images
+          </a>
+        </div>
+
+      </div>
+    </div>
   </div>
-</div>
+</section>

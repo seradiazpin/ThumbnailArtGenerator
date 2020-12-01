@@ -1,21 +1,51 @@
-<div class="row">
-  <div class="col-md-8">
+<section class="my-5">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-3" *ngFor="let src of imagesUrl">
-        <app-image title="Generated" [src]="src"></app-image>
+      <div class="col-md-12 mx-auto">
+        <h1>Project a Image</h1>
+        <h3 class="title">Generate a thumbnail using an existing image.</h3>
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
+          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
+          class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+          media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+</section>
+<section class="my-5">
+  <div class="container">
     <div class="row">
-      <a (click)="projectImage()" class="btn btn-info col-sm" role="button">
-        <i class="material-icons">fiber_new</i> Project
-      </a>
-      <div class="form-group">
-        <label for="file" class="btn btn-info col-sm" role="button">Choose Files</label>
-        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-sm-3" *ngFor="let src of imagesUrl">
+                <img class="rounded img-fluid" [src]="getbs64(src)">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <a (click)="projectImage()" class="btn btn-primary col-sm" >
+                <i class="fas fa-object-ungroup"></i> Project
+              </a>
+              <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="handleFileInput($event.target.files)">
+                  <label class="custom-file-label" for="inputGroupFile01 ">Choose file</label>
+                </div>
+              </div>
+            </div>
+            <img class="rounded img-fluid" [src]="getImg()">
+          </div>
+        </div>
       </div>
-      <app-image title="Generated" [src]="originalUrl"></app-image>
     </div>
   </div>
-</div>
+</section>
+

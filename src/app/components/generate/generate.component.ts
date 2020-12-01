@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class GenerateComponent {
 
-  imageData = {}
-  seed1
+  imageData;
+  seed1;
   constructor(private api: WebapiService) {
     this.seed1 = this.getRandomInt(0,99999)
   }

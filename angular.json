@@ -25,16 +25,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/material-kit.css"
             ],
             "scripts": [
-              "src/assets/js/core/jquery.min.js",
-              "src/assets/js/core/popper.min.js",
-              "src/assets/js/core/bootstrap-material-design.min.js",
-              "src/assets/js/plugins/moment.min.js",
-              "src/assets/js/plugins/bootstrap-datetimepicker.js",
-              "src/assets/js/plugins/nouislider.min.js",
-              "src/assets/js/material-kit.js"
             ],
             "es5BrowserSupport": true
           },

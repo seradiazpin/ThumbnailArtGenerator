@@ -30,4 +30,23 @@ export class ProjectComponent implements OnInit {
     })
   }
 
+  placeholder: string = "img/placeholder.png"
+  getImg() {
+    if(this.originalUrl && this.originalUrl !== ''){
+      return this.domSanitizer.bypassSecurityTrustUrl(this.originalUrl);
+    }else{
+      return this.placeholder;
+    }
+
+  }
+
+  getbs64(src) {
+    if(src && src !== ''){
+      return this.domSanitizer.bypassSecurityTrustUrl(src);
+    }else{
+      return this.placeholder;
+    }
+
+  }
+
 }

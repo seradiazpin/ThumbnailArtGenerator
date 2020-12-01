@@ -1,37 +1,67 @@
-<div class="row">
-  <div class="col-md-6">
-    <app-image title="Generated" [src]="imageData?.link_small"></app-image>
-  </div>
-  <div class="col-md-6">
-    <h3>Options</h3>
+<section class="my-5">
+  <div class="container">
     <div class="row">
-      <div class="form-group mb-3 col-md-4">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Seed Imnage</span>
-        </div>
-        <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed1"
-          aria-describedby="basic-addon1">
+      <div class="col-md-12 mx-auto">
+        <h1>Generate Image</h1>
+        <h3 class="title">Generate a random image using a neural network.</h3>
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background!
+          The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code>
+          class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the
+          media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
       </div>
     </div>
+  </div>
+</section>
+<section class="my-5">
+  <div class="container">
     <div class="row">
-      <a (click)="randomSeed()" class="btn btn-info col-sm">
-        <span class="material-icons">local_florist</span> Random Seed
-      </a>
-      <a (click)="generate()" class="btn btn-info col-sm" role="button">
-        <i class="material-icons">fiber_new</i> Generate
-      </a>
-      <a [ngClass]="{'disabled': !imageData?.link}" [href]="imageData?.link" class="btn btn-info col-sm" role="button" download>
-        <span class="material-icons">cloud_download</span> Download
-      </a>
-      
-      <!--
-      <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
-        <span class="material-icons">merge_type</span> Mix Image
-      </a>
-      <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
-        <span class="material-icons">edit</span> Edit Image
-      </a>
-    </div>
-    <app-sliders (vector)="processVector($event)"></app-sliders>-->
+      <div class="col-md-12 mx-auto">
+        <div class="row">
+          <div class="col-md">
+            <app-image title="Generated" [imageData]="imageData"></app-image>
+          </div>
+          <div class="col-md">
+            <h3>Options</h3>
+            <div class="row">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Seed Image</span>
+                </div>
+                <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed1"
+                  aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+            <div class="row">
+              <a (click)="randomSeed()" class="btn btn-primary col-sm">
+                <i class="fas fa-seedling"></i> Random Seed
+              </a>
+              <a (click)="generate()" class="btn btn-primary col-sm" role="button">
+                <i class="fas fa-paint-brush"></i> Generate
+              </a>
+              <a [ngClass]="{'disabled': !imageData?.link}" [href]="imageData?.link" class="btn btn-primary col-sm"
+                role="button" download target="_blank"> 
+                <i class="fas fa-cloud-download-alt"></i> Download
+              </a>
+
+              <!--
+              <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
+                <span class="material-icons">merge_type</span> Mix Image
+              </a>
+              <a (click)="generateRandom()" class="btn btn-info col-sm" role="button">
+                <span class="material-icons">edit</span> Edit Image
+              </a>
+            </div>
+            <app-sliders (vector)="processVector($event)"></app-sliders>-->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+

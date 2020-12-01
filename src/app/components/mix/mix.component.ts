@@ -10,7 +10,7 @@ export class MixComponent implements OnInit {
   seed1: number = this.getRandomInt(0,99999)
   seed2: number = this.getRandomInt(0,99999);
   imagesUrl = {}
-  mixType = "0"
+  mixType = 0
   loading;
   help = false;
   constructor(private api: WebapiService) { }

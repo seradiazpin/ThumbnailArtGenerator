@@ -5,6 +5,12 @@
         <h1>Project a Image</h1>
         <h3 class="title">Generate a thumbnail using an existing image.</h3>
         <p>Update a image to generate a projection using the neural network.</p>
+        <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="helpVideo =!helpVideo"><i
+            class="fas fa-question-circle"></i> Video </button>
+      </div>
+      <div class="col-md-12 mx-auto" *ngIf="helpVideo">
+
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/adf8brxmpa0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -16,29 +22,94 @@
         <div class="row">
           <div class="col-md-8">
             <div class="row">
-              <div class="col-sm-3" *ngFor="let src of imagesUrl">
-                <img class="rounded img-fluid" [src]="getbs64(src)">
+              <div class="col-sm-6">
+                <h4>Original Image</h4>
+                <img class="rounded img-fluid" [src]="getImg()">
+              </div>
+              <div class="col-sm-6">
+                <app-image title="Network Projection" [imageData]="imageData"></app-image>
               </div>
             </div>
           </div>
           <div class="col-md-4">
+
             <div class="row">
-              <a (click)="projectImage()" class="btn btn-primary col-sm mx-1 my-1" >
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
-                <i *ngIf="!loading" class="fas fa-object-ungroup"></i> {{!loading  ? "Project" : "Projecting Image"}} 
-              </a>
+
+
               <div class="input-group mb-3">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="handleFileInput($event.target.files)">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01"
+                    (change)="handleFileInput($event.target.files)">
                   <label class="custom-file-label mx-1 my-1" for="inputGroupFile01 ">Choose file</label>
                 </div>
               </div>
+              <a (click)="projectImage()" class="btn btn-primary col-sm mx-1 my-1">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+                <i *ngIf="!loading" class="fas fa-object-ungroup"></i> {{!loading  ? "Project" : "Projecting Image"}}
+              </a>
             </div>
-            <img class="rounded img-fluid" [src]="getImg()">
+
+            <div class="dropdown-divider"></div>
+
+            <div *ngIf="seed" class="row">
+              <h5>Mix menu</h5>
+              <div class="input-group input-group-sm mb-3 ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Image Id</span>
+                </div>
+                <input type="text" class="form-control" placeholder="seed1" aria-label="Seed 1" [(ngModel)]="seed"
+                  aria-describedby="inputGroup-sizing-sm">
+
+              </div>
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">Seed Second Image</span>
+                </div>
+                <input type="text" class="form-control" placeholder="seed2" aria-label="Seed 2" [(ngModel)]="seed2"
+                  aria-describedby="inputGroup-sizing-sm">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    (click)="randomSeed2()">Random Seed</button>
+                </div>
+              </div>
+              <div class="input-group input-group-sm mb-3  mx-1 my-1">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend" id="button-addon3">
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(0)"
+                      [ngClass]="{'btn-secondary': mixType == 0 ,'btn-outline-secondary': mixType != 0}"
+                      type="button">Structure first image, Style second image</button>
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(1)"
+                      [ngClass]="{'btn-secondary': mixType == 1 ,'btn-outline-secondary': mixType != 1}" type="button">
+                      Mix betwen the two images</button>
+                    <button class="btn btn-outline-secondary" (click)="selectStyle(2)"
+                      [ngClass]="{'btn-secondary': mixType == 2 ,'btn-outline-secondary': mixType != 2}"
+                      type="button">Structure second image, Style first image</button>
+                  </div>
+                </div>
+
+              </div>
+              <a (click)="mixProjection()" class="btn btn-primary col-sm mx-1 my-1">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+                <i *ngIf="!loading" class="fas fa-object-ungroup"></i> {{!loadingMix  ? "Mix" : "Mixing Image"}}
+              </a>
+            </div>
+          </div>
+          <div class="col-md-12" *ngIf="getImgUrl('dst')">
+            <div class="row">
+              <div class="col-sm-4">
+                <app-image title="Projected Image" [imageData]="getImgUrl('dst')"></app-image>
+              </div>
+              <div class="col-sm-4">
+                <app-image title="Second Image" [imageData]="getImgUrl('src')"></app-image>
+              </div>
+
+              <div class="col-sm-4">
+                <app-image title="Mixed Image" [imageData]="getImgUrl('mix')"></app-image>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-

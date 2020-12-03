@@ -4,10 +4,17 @@
       <div class="col-md-12 mx-auto">
         <h1>Generate Image</h1>
         <h3 class="title">Generate a random image using a neural network.</h3>
-        <p>For the moment the only available option to generate images is by a random seed, select a seed and click on the generate button. This 
+        <p>For the moment the only available option to generate images is by a random seed, select a seed and click on
+          the generate button. This
           proces could take a few seconds the first time.
         </p>
         <p>Click on the image to check the full resolution and download link</p>
+        <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="helpVideo =!helpVideo"><i
+            class="fas fa-question-circle"></i> Video </button>
+      </div>
+      <div class="col-md-12 mx-auto" *ngIf="helpVideo">
+
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/KIxF9WsGay8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -35,12 +42,12 @@
               <a (click)="randomSeed()" class="btn btn-primary col-sm mx-1 my-1">
                 <i class="fas fa-seedling"></i> Random Seed
               </a>
-              <a (click)="generate()" class="btn btn-primary col-sm mx-1 my-1" >
+              <a (click)="generate()" class="btn btn-primary col-sm mx-1 my-1">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
                 <i *ngIf="!loading" class="fas fa-paint-brush"></i> {{!loading ? "Generate": "Generating"}}
               </a>
-              <a [ngClass]="{'disabled': !imageData?.link}" [href]="imageData?.link" class="btn btn-primary col-sm mx-1 my-1"
-                role="button" download target="_blank"> 
+              <a [ngClass]="{'disabled': !imageData?.link}" [href]="imageData?.link"
+                class="btn btn-primary col-sm mx-1 my-1" role="button" download target="_blank">
                 <i class="fas fa-cloud-download-alt"></i> Download
               </a>
 
@@ -60,4 +67,3 @@
     </div>
   </div>
 </section>
-

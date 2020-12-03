@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WebapiService {
-  API = 'http://localhost:8000'
+  API = 'http://192.168.0.9:8000'
   GENERATOR = 'generator'
   PROJECTOR = 'projector'
   GALLERY  = 'gallery'
@@ -27,10 +27,8 @@ export class WebapiService {
     formData.append("file", data, data.name);
     return this.http.post(this.requestString(this.PROJECTOR, "image"), formData) as Observable<string[]>;
   }
-  projectmix(data): Observable<string[]> {
-    const formData = new FormData();
-    formData.append("file", data, data.name);
-    return this.http.post(this.requestString(this.PROJECTOR, "mixProjection"), formData) as Observable<string[]>;
+  projectmix(data): Observable<any> {
+    return this.http.post(this.requestString(this.PROJECTOR, "mixProjection"), data) as Observable<any>;
   }
   mix(data): Observable<any> {
     return this.http.post(this.requestString(this.PROJECTOR, "mixSeeds"), data) as Observable<any>;

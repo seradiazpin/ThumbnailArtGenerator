@@ -10,6 +10,7 @@ export class GenerateComponent {
   imageData;
   seed1;
   loading;
+  helpVideo;
   constructor(private api: WebapiService) {
     this.seed1 = this.getRandomInt(0,99999)
   }

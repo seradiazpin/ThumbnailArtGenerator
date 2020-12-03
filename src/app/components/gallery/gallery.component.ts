@@ -17,6 +17,7 @@ export class GalleryComponent implements OnInit {
   page = 0
   preview
   loading;
+  helpVideo;
   constructor(private api:WebapiService, private downloads: DownloadService) { }
   query(page){
     this.loading = true;

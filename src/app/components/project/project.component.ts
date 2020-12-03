@@ -17,6 +17,7 @@ export class ProjectComponent implements OnInit {
   seed = "No id";
   seed2;
   mixType=0;
+  helpVideo;
 
   constructor(private api: WebapiService,private domSanitizer: DomSanitizer) { }
 

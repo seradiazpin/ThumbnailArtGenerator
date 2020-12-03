@@ -13,6 +13,7 @@ export class MixComponent implements OnInit {
   mixType = 0
   loading;
   help = false;
+  helpVideo;
   constructor(private api: WebapiService) { }
 
 

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WebapiService {
-  API = 'http://192.168.0.9:8000'
+  API = 'http://localhost:8000'
   GENERATOR = 'generator'
   PROJECTOR = 'projector'
   GALLERY  = 'gallery'

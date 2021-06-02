@@ -18,7 +18,7 @@
   </div>
 </section>
 <section class="my-5">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mx-auto">
         <h1>Images </h1>
@@ -27,15 +27,9 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
-        <div class="row">
-          
-          <div *ngFor="let item of images" class="col-sm-3">
-            <div>
-              <a role="button" data-toggle="modal" data-target="#previewModal"
-                (click)="previewImage(item)">
-                <img src="{{item.link_small}}" class="rounded img-fluid">
-              </a>
-            </div>
+        <div class="grid-container">
+          <div data-toggle="modal" data-target="#previewModal" class="grid-item"
+          (click)="previewImage(item)" *ngFor="let item of images; let i = index" [ngClass]="{'wide tall  image-wrapper ': i % 4 == 0, 'big': i%9 == 0}" [ngStyle]="{'background-image': 'url('+item.link_small+')' , 'background-size':'120%'}"> 
             <br>
           </div>
         </div>

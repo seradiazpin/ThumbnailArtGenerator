@@ -21,7 +21,7 @@ export class GalleryComponent implements OnInit {
   constructor(private api:WebapiService, private downloads: DownloadService) { }
   query(page){
     this.loading = true;
-    this.api.gallery({"page":page,"size":16}).subscribe(data=>{
+    this.api.gallery({"page":page,"size":50}).subscribe(data=>{
       this.images = data
       this.first = data[0].id
       if(page == 0){
@@ -34,7 +34,7 @@ export class GalleryComponent implements OnInit {
         this.previous_active = true
       }
       this.next_id = data[data.length-1].id
-      if(data.length === 16){
+      if(data.length === 50){
         this.next_active = true
       }else{
         this.next_active = false
